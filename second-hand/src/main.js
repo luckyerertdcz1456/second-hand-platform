@@ -5,9 +5,11 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App.vue'
 import '../src/assets/styles/index.css'
-
+import axios from 'axios'
+// import request from '@/request.js'
 Vue.use(Element, { size: 'small', zIndex: 3000 })
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 new Vue({
     router,
     store,

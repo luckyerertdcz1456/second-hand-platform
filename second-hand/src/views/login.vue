@@ -156,7 +156,7 @@
   </div>
 </template>
 <script>
-/* import request from '@/request' */
+
 import request from '../request'
 export default {
     name: 'login',
@@ -260,7 +260,7 @@ export default {
                 if (valid) {
                     // 发送登录请求
                     request.post('login/emaillogin', this.form).then((res) => {
-                        console.log("到了then")
+                        // console.log("到了then")
                         if (res.data.code === 1) {
                             // 存token 和id
                             window.sessionStorage.setItem('token', res.data.data.token)
@@ -313,9 +313,11 @@ export default {
             })
         },
         sendCode2 () {
-            console.log(this.registerForm.email)
             // 邮箱验证通过才能发送
-            request.get(`login/${this.registerForm.email}`).then((resp) => {
+            this.$refs.registerForm.validateField('email', (emailError) => {
+                if (!emailError) {
+                    // 发送验证码
+                    this.$http.get(`login/${this.registerForm.email}`).then((resp) => {
                         if (resp.data.code === 1) {
                             this.$message({
                                 message: '发送成功 验证码三分钟有效',
@@ -325,21 +327,7 @@ export default {
                             this.$message.error('发送失败')
                         }
                     })
-            /* this.$refs.registerForm.validateField('email', (emailError) => {
-                if (!emailError) {
-                    //发送验证码
-                    request.get(`login/${this.registerForm.email}`).then((resp) => {
-                        if (resp.data.code === 1) {
-                            this.$message({
-                                message: '发送成功 验证码三分钟有效',
-                                type: 'success'
-                            });
-                        } else {
-                            this.$message.error('发送失败');
-                        }
-                    })
                     this.isUse2 = true
-                    console.log('6')
 
                     // 创建定时器实现60秒发送一次验证码的效果
                     // eslint-disable-next-line no-var
@@ -355,7 +343,7 @@ export default {
                         }
                     }, 1000)
                 }
-            }) */
+            })
         },
         passwordlogin () {
             // validate验证表单是否合法
