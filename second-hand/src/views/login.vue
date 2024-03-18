@@ -158,6 +158,7 @@
 <script>
 
 import request from '../request'
+import axios from 'axios'
 export default {
     name: 'login',
     data () {
@@ -240,7 +241,7 @@ export default {
             this.$refs.registerForm.validate(valid => {
                 if (valid) {
                     // 发送登录请求
-                    request.post('login/register', this.registerForm).then((res) => {
+                    this.$http.post('login/register', this.registerForm).then((res) => {
                         if (res.data.code === 1) {
                             this.$message.success('注册成功')
                             this.activeName = 'password'
@@ -259,7 +260,7 @@ export default {
             this.$refs.form.validate(valid => {
                 if (valid) {
                     // 发送登录请求
-                    request.post('login/emaillogin', this.form).then((res) => {
+                    this.$http.post('login/emaillogin', this.form).then((res) => {
                         // console.log("到了then")
                         if (res.data.code === 1) {
                             // 存token 和id
@@ -284,7 +285,7 @@ export default {
             this.$refs.form.validateField('email', (emailError) => {
                 if (!emailError) {
                     // 发送验证码
-                    request.get(`login/${this.form.email}`).then((resp) => {
+                    this.$http.get(`login/${this.form.email}`).then((resp) => {
                         if (resp.data.code === 1) {
                             this.$message({
                                 message: '发送成功 验证码三分钟有效',
@@ -317,7 +318,8 @@ export default {
             this.$refs.registerForm.validateField('email', (emailError) => {
                 if (!emailError) {
                     // 发送验证码
-                    this.$http.get(`login/${this.registerForm.email}`).then((resp) => {
+                    axios.get(`login/${this.registerForm.email}`).then((resp) => {
+                console.log('6')
                         if (resp.data.code === 1) {
                             this.$message({
                                 message: '发送成功 验证码三分钟有效',
@@ -326,12 +328,13 @@ export default {
                         } else {
                             this.$message.error('发送失败')
                         }
+                    }).catch((error) => {
+                        console.log(error)
                     })
                     this.isUse2 = true
-
                     // 创建定时器实现60秒发送一次验证码的效果
                     // eslint-disable-next-line no-var
-                    var timeTool2 = setInterval(() => {
+                    /* var timeTool2 = setInterval(() => {
                         if (this.time2 === 0) {
                             clearInterval(timeTool2)
                             this.isUse2 = false
@@ -341,7 +344,7 @@ export default {
                             this.time2--
                             this.buttMsg2 = `${this.time2}秒后重新获取`
                         }
-                    }, 1000)
+                    }, 1000) */
                 }
             })
         },
@@ -350,7 +353,7 @@ export default {
             this.$refs.passwordform.validate(valid => {
                 if (valid) {
                     // 发送登录请求
-                    request.post('login/passwordlogin', this.passwordform).then((res) => {
+                    this.$http.post('login/passwordlogin', this.passwordform).then((res) => {
                         if (res.data.code === 1) {
                             // 存token 和id
                             window.sessionStorage.setItem('token', res.data.data.token)

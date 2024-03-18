@@ -12,8 +12,8 @@
 
 </div>
 <div>
-    <el-button type="primary">修改密码</el-button>
-    <el-button type="primary">修改信息</el-button>
+    <el-button type="primary" @click="ModifyPassword">修改密码</el-button>
+    <el-button type="primary" @click="ModifyInfo">修改信息</el-button>
 </div>
     </div>
 </template>
@@ -46,6 +46,15 @@ export default {
                 this.$message.error('系统繁忙请稍后再试')
             }
         })
+    },
+    methods: {
+        ModifyInfo () {
+            this.$router.push('/modifyInfo')
+        },
+
+        ModifyPassword () {
+            this.$router.push({ path: '/modifyPassword', query: { email: this.user.email } })
+        }
     }
 }
 </script>

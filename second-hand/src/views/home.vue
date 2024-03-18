@@ -39,7 +39,7 @@
             </template>
             <el-menu-item index="3-1">我发布的商品</el-menu-item>
             <el-menu-item index="3-2">我卖出的商品</el-menu-item>
-            <el-menu-item index="3-3"><router-link to="/myInformation">我的信息</router-link></el-menu-item>
+            <el-menu-item index="3-3"><router-link to="twoHand">我的信息</router-link></el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -91,7 +91,6 @@
 }
 .router{
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 </style>
