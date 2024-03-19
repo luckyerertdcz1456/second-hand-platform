@@ -256,8 +256,9 @@ export default {
             })
         },
         login () {
+            this.$router.push('/home')
             // validate验证表单是否合法
-            this.$refs.form.validate(valid => {
+            /* this.$refs.form.validate(valid => {
                 if (valid) {
                     // 发送登录请求
                     this.$http.post('login/emaillogin', this.form).then((res) => {
@@ -270,7 +271,7 @@ export default {
                             // 页面跳转到主页
 
                             this.$message.success('登录成功')
-                            this.$router.push('/home')
+                            //this.$router.push('/home')
                         } else {
                             this.$message.error('登录失败')
                         }
@@ -278,7 +279,7 @@ export default {
                 } else {
                     this.$message.error('请输入正确的邮箱或验证码')
                 }
-            })
+            }) */
         },
         sendCode () {
             // 邮箱验证通过才能发送
@@ -349,8 +350,9 @@ export default {
             })
         },
         passwordlogin () {
+            this.$router.push('/home')
             // validate验证表单是否合法
-            this.$refs.passwordform.validate(valid => {
+            /* this.$refs.passwordform.validate(valid => {
                 if (valid) {
                     // 发送登录请求
                     this.$http.post('login/passwordlogin', this.passwordform).then((res) => {
@@ -368,7 +370,7 @@ export default {
                 } else {
                     this.$message.error('请输入正确的邮箱或验证码')
                 }
-            })
+            }) */
         }
     }
 

@@ -49,6 +49,7 @@
 </template>
 <script>
  export default {
+    name:'home',
     methods: {
       handleOpen (key, keyPath) {
         console.log(key, keyPath)

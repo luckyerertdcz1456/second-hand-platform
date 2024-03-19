@@ -11,12 +11,12 @@ axios.interceptors.request.use(config => {
     config.headers.Authorization = window.sessionStorage.getItem('token')
     return config
   })
-  axios.defaults.baseURL = 'api/'
+axios.defaults.baseURL = 'api/'
 Vue.use(Element, { size: 'small', zIndex: 3000 })
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 new Vue({
-    router,
+    router:router,
     store,
     render: h => h(App)
 }).$mount('#app')
