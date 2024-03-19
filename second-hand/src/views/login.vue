@@ -318,7 +318,7 @@ export default {
             this.$refs.registerForm.validateField('email', (emailError) => {
                 if (!emailError) {
                     // 发送验证码
-                    axios.get(`login/${this.registerForm.email}`).then((resp) => {
+                    this.$http.get(`login/${this.registerForm.email}`).then((resp) => {
                 console.log('6')
                         if (resp.data.code === 1) {
                             this.$message({
@@ -334,7 +334,7 @@ export default {
                     this.isUse2 = true
                     // 创建定时器实现60秒发送一次验证码的效果
                     // eslint-disable-next-line no-var
-                    /* var timeTool2 = setInterval(() => {
+                    var timeTool2 = setInterval(() => {
                         if (this.time2 === 0) {
                             clearInterval(timeTool2)
                             this.isUse2 = false
@@ -344,7 +344,7 @@ export default {
                             this.time2--
                             this.buttMsg2 = `${this.time2}秒后重新获取`
                         }
-                    }, 1000) */
+                    }, 1000)
                 }
             })
         },
