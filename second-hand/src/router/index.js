@@ -10,7 +10,7 @@ import twoHand from '@/components/twoHand.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {path:'/' ,redirect:'/home'},
+  {path:'/' ,redirect:'/login'},
   {
     path: '/login',
     component: login
@@ -47,7 +47,7 @@ const router = new VueRouter({
   routes
 })
 //全局前置路由守卫————初始化的时候被调用、每次路由切换之前被调用
-/* router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   if(to.path==='/login'){
    return next();
   }
@@ -60,5 +60,5 @@ const router = new VueRouter({
      return next();
    }
   
- }) */
+ })
 export default router
