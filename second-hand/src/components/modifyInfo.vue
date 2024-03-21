@@ -84,7 +84,7 @@ methods: {
         this.$http.put('/user/modifyinformation', this.form).then((resp) => {
           if (resp.data.code === 1) {
             this.$message.success('修改成功')
-            this.$router.push('/mydetail')
+            this.$router.push('/myInformation')
           } else if (resp.data.code === 2) {
             this.$message.error(resp.data.msg)
             window.sessionStorage.clear()

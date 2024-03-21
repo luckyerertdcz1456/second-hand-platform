@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <el-card>
             <!-- 顶部搜索部分 -->
             <el-row :gutter="20">
@@ -116,7 +115,7 @@ export default {
             console.log('change')
         },
         checkDetail (id1) {
-            this.$router.push({ path: '/goodsdetail', query: { id: id1 } })
+            this.$router.push({ path: '/GoodsDetail', query: { id: id1 } })
         },
         getGoodsList () {
             this.$http.get('goods', {

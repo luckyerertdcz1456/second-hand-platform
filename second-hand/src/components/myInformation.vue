@@ -24,7 +24,7 @@ export default {
         return {
             user: {
                 userName: '用户名',
-            avatar: '',
+                avatar: '',
                 money: '',
                 freezeMoney: '',
                 status: '0',

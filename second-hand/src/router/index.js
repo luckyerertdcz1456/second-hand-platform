@@ -5,8 +5,12 @@ import home from '@/views/home.vue'
 import myInformation from '@/components/myInformation.vue'
 import modifyInfo from '@/components/modifyInfo.vue'
 import modifyPassword from '@/components/modifyPassword.vue'
-import goods from '@/components/goods.vue'
+
 import twoHand from '@/components/twoHand.vue'
+import postChange from '@/components/postChange.vue'
+import mySell from '@/components/Mysell.vue'
+import MyBought from '@/components/MyBought.vue'
+import GoodsDetail from '@/components/GoodsDetail.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,16 +35,30 @@ const routes = [
       path: '/modifyPassword',
       component: modifyPassword
     },
-    {
-      path: '/goods',
-      component: goods
-    },
+    
     {
       path: '/twoHand',
       component: twoHand
     }
+    ,{
+      path:'/postChange',
+      component:postChange
+    },
+    {
+      path:'/mySell',
+      component:mySell
+    },
+    {
+      path:'/MyBought',
+      component:MyBought
+    },
+    {
+      path:'/GoodsDetail',
+      component:GoodsDetail
+    }
   ]
 },
+
 ]
 
 const router = new VueRouter({

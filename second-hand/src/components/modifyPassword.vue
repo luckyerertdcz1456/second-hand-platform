@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div slot="header">修改密码</div>
+    <div class="container">
+        <div slot="header" class="header">修改密码</div>
             <el-form ref="form" :model="form" :rules="rules" label-width="80px">
                 <el-form-item label="新密码" prop="newPassword">
                     <el-input type="password" v-model="form.newPassword"></el-input>
@@ -15,7 +15,7 @@
                     <el-input v-model="form.code" clearable></el-input>
                 </el-form-item>
                 <div>
-                    <el-button class="submit-button" type="primary" @click="submit">提交</el-button>
+                    <el-button class="submit-button" type="primary" @click="submit" >提交</el-button>
                     <el-button class="captcha-button" @click="sendCode" :disabled="isSending">{{
                         buttonText }}</el-button>
                 </div>
@@ -35,7 +35,6 @@ export default {
             },
 
             rules: {
-
                 newPassword: [
                     { required: true, message: '请输入新密码', trigger: 'blur' },
                     { min: 6, max: 12, message: '密码长度应在6到12位之间', trigger: 'blur' }
@@ -93,7 +92,7 @@ export default {
                     this.$http.put('user/modifypassword', this.form).then((resp) => {
                         if (resp.data.code === 1) {
                             this.$message.success('修改成功')
-                            this.$router.push('/mydetail')
+                            this.$router.push('/modifyInfo')
                         } else if (resp.data.code === 2) {
                             this.$message.error(resp.data.msg)
                             window.sessionStorage.clear()
@@ -112,6 +111,16 @@ export default {
 }
 </script>
 <style scoped>
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+}
+.header{
+    text-align: center;
+    margin-bottom: 20px;
+}
 .form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -126,6 +135,6 @@ export default {
 .submit-button {
     margin-left: 100px;
     margin-top: 20px;
-    width: 50%
+    width: 120px;
 }
 </style>
