@@ -350,9 +350,9 @@ export default {
             })
         },
         passwordlogin () {
-            this.$router.push('/home')
+           
             // validate验证表单是否合法
-            /* this.$refs.passwordform.validate(valid => {
+            this.$refs.passwordform.validate(valid => {
                 if (valid) {
                     // 发送登录请求
                     this.$http.post('login/passwordlogin', this.passwordform).then((res) => {
@@ -370,7 +370,7 @@ export default {
                 } else {
                     this.$message.error('请输入正确的邮箱或验证码')
                 }
-            }) */
+            })
         }
     }
 

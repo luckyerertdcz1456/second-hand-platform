@@ -142,7 +142,7 @@ export default {
             })
         },
         getimg (img) {
-            return `http://47.97.183.209:7070/api/file/download?name=${img}`
+            return `http://82.157.184.71:4545/file/download?name=${img}`
         },
         search () {
             this.queryInfo.pageNum = 1

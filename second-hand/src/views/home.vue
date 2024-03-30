@@ -12,7 +12,7 @@
     <el-container class="down-container">
       <el-aside width="200px">
         <el-menu
-          default-active="2"
+          default-active="1"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -30,15 +30,15 @@
             <span slot="title"><router-link to="/postChange" class="router-link">发布二手商品</router-link></span>
           </el-menu-item>
           
-          <el-menu-item index="4">
+          <el-menu-item index="3">
             <i class="el-icon-menu"></i>
             <span slot="title"><router-link to="/MyBought" class="router-link">我卖出的二手商品</router-link></span>
           </el-menu-item>
-          <el-menu-item index="5">
+          <el-menu-item index="4">
             <i class="el-icon-menu"></i>
             <span slot="title"><router-link to="/MyBought" class="router-link">我买的二手商品</router-link></span>
           </el-menu-item>
-          <el-menu-item index="6">
+          <el-menu-item index="5">
             <i class="el-icon-menu"></i>
             <span slot="title"><router-link to="/myInformation" class="router-link">我的信息</router-link></span>
           </el-menu-item>
@@ -94,7 +94,7 @@
             this.$http.get('user').then((res) => {
                 if (res.data.code == 1) {
                     this.user = { ...res.data.data };
-                    this.user.head = `http://47.97.183.209:7070/api/file/download?name=${this.user.head}`
+                    this.user.head = `http://82.157.184.71:4545/file/download?name=${this.user.head}`
                 } else if (res.data.code == 2) {
                     this.$message.error(res.data.msg);
                     window.sessionStorage.clear();

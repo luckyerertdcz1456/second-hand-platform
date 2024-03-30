@@ -102,7 +102,7 @@ export default {
                     this.goods.building = res.data.data.building;
                     this.goods.floor = res.data.data.floor;
                     this.goods.room = res.data.data.room;
-                    this.goods.imgUrl = `http://47.97.183.209:7070/api/file/download?name=${res.data.data.imgUrl}`;
+                    this.goods.imgUrl = `http://82.157.184.71:4545/file/download?name=${res.data.data.imgUrl}`;
                     this.goods.time = res.data.data.time;
                     this.goods.isManager = res.data.data.isManager;
                     console.log(this.area)
